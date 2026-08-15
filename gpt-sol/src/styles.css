@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f3f0e8;
+  --color-ink: #17201d;
+  --color-moss: #315c4a;
+  --color-sage: #9eaf9f;
+  --color-vermilion: #de5b3f;
+  --color-sun: #e8bf65;
+  --font-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-serif: "Iowan Old Style", "Noto Serif SC", "Songti SC", serif;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f3f0e8; color: #17201d; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #de5b3f; color: #fff; }
+
+.paper-grid {
+  background-image: linear-gradient(rgba(23,32,29,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(23,32,29,.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+.range-input { appearance: none; height: 3px; background: #9eaf9f; border-radius: 99px; }
+.range-input::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #de5b3f; border: 3px solid #f3f0e8; box-shadow: 0 0 0 1px #17201d; cursor: pointer; }

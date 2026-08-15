@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Surfaces — dark chart surface validated with the palette below */
+  --color-surface: #111110;
+  --color-panel: #1a1a19;
+  --color-panel-2: #222221;
+
+  /* Ink (text tokens — text never wears series colors) */
+  --color-ink: #ffffff;
+  --color-ink-2: #c3c2b7;
+  --color-ink-3: #8a8980;
+
+  /* Categorical series, dark-mode steps (validated: CVD ΔE ≥ 9.4, contrast ≥ 3:1) */
+  --color-s1: #3987e5; /* blue   — primary geometry */
+  --color-s2: #d95926; /* orange — secondary group / highlights */
+  --color-s3: #199e70; /* aqua   — tertiary group / constructions */
+
+  --font-serif-sc: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-surface text-ink antialiased;
+  font-feature-settings: 'ss01';
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-s1) 40%, transparent);
+}
+
+/* KaTeX blocks may overflow on narrow screens */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
