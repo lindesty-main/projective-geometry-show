@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="透视与投影主题的四种交互式前端实现。" />
+    <title>透视与投影 · Projective Geometry Show</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #f7f1e3;
+        background: #101a17;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(circle at 15% 10%, #315746 0, transparent 34rem),
+          radial-gradient(circle at 90% 90%, #543d25 0, transparent 30rem),
+          #101a17;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: clamp(4rem, 9vw, 8rem) 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 1rem;
+        color: #efbc72;
+        font:
+          600 0.75rem/1.4 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 0;
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(2.7rem, 8vw, 6.5rem);
+        font-weight: 500;
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .intro {
+        max-width: 650px;
+        margin: 2rem 0 3.5rem;
+        color: #b7c2ba;
+        font-size: clamp(1rem, 2vw, 1.18rem);
+        line-height: 1.8;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        position: relative;
+        min-height: 250px;
+        overflow: hidden;
+        padding: 1.6rem;
+        border: 1px solid rgb(255 255 255 / 12%);
+        border-radius: 1.1rem;
+        color: inherit;
+        background: rgb(255 255 255 / 5%);
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .card::after {
+        position: absolute;
+        right: -3rem;
+        bottom: -5rem;
+        width: 12rem;
+        height: 12rem;
+        border: 1px solid rgb(239 188 114 / 30%);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-4px);
+        border-color: rgb(239 188 114 / 65%);
+        background: rgb(255 255 255 / 8%);
+        outline: none;
+      }
+
+      .number {
+        color: #efbc72;
+        font:
+          500 0.76rem/1 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace;
+      }
+
+      h2 {
+        margin: 3.2rem 0 0.7rem;
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+        font-weight: 500;
+      }
+
+      .card p {
+        max-width: 29rem;
+        margin: 0;
+        color: #aeb9b1;
+        line-height: 1.65;
+      }
+
+      .open {
+        display: inline-block;
+        margin-top: 1.4rem;
+        color: #efbc72;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 3rem;
+        padding-top: 1.3rem;
+        border-top: 1px solid rgb(255 255 255 / 10%);
+        color: #7f8e84;
+        font-size: 0.82rem;
+      }
+
+      footer a {
+        color: #b7c2ba;
+      }
+
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          min-height: 220px;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Projective Geometry Show</p>
+      <h1>同一个数学世界，四种交互叙事。</h1>
+      <p class="intro">
+        从投影公式、消失点与调和收缩，到有理数森林和圆锥曲线。选择一个版本，进入可拖拽、可观察的透视几何实验。
+      </p>
+
+      <section class="grid" aria-label="项目版本">
+        <a class="card" href="./deepseek-pro/">
+          <span class="number">01 / DEEPSEEK PRO</span>
+          <h2>透视与投影</h2>
+          <p>以章节式叙事串联 Canvas 演示、投影公式、消失点与有理数森林。</p>
+          <span class="open">进入体验 →</span>
+        </a>
+
+        <a class="card" href="./deepseek-flash/">
+          <span class="number">02 / DEEPSEEK FLASH</span>
+          <h2>交互式数学漫游</h2>
+          <p>融合 2D 与 3D 可视化，在十个章节中漫游投影几何的关键概念。</p>
+          <span class="open">进入体验 →</span>
+        </a>
+
+        <a class="card" href="./claude-fable5/">
+          <span class="number">03 / CLAUDE FABLE 5</span>
+          <h2>透视数学实验</h2>
+          <p>通过一组聚焦明确的互动演示，观察立方体、椭圆、铁轨与消失点。</p>
+          <span class="open">进入体验 →</span>
+        </a>
+
+        <a class="card" href="./gpt-sol/">
+          <span class="number">04 / GPT SOL</span>
+          <h2>投影场记</h2>
+          <p>以简洁的视觉语言记录投影第一性原理及其几何推论。</p>
+          <span class="open">进入体验 →</span>
+        </a>
+      </section>
+
+      <footer>
+        <span>四个实现，共享同一组透视几何主题。</span>
+        <a href="https://github.com/lindesty-main/projective-geometry-show"
+          >查看源代码</a
+        >
+      </footer>
+    </main>
+  </body>
+</html>

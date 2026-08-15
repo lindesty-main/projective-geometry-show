@@ -8,6 +8,7 @@
 **/tmp/
 **/.tmp/
 **/.vite/
+_site/
 *.tsbuildinfo
 
 # Local configuration and secrets
